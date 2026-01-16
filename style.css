@@ -1,0 +1,109 @@
+/* 1. RESET: Tirar as margens padrão do navegador para ter controle total */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o tamanho inclua a borda */
+}
+
+/* 2. O CORPO: Centralizar tudo na tela e dar uma cor de fundo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+    background-color: #f0f2f5; /* Cinza bem clarinho (estilo Facebook/LinkedIn) */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa 100% da altura da tela */
+}
+
+/* 3. O CONTAINER: A "caixa" branca do aplicativo */
+div.container {
+    background-color: white;
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Uma sombra suave para dar profundidade */
+}
+
+/* Título */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* 4. A ÁREA DE INPUT E BOTÃO */
+/* Vamos precisar envolver o input e o botão numa div no HTML depois */
+input {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none; /* Tira a borda azul padrão do Chrome */
+    transition: border-color 0.3s; /* Animação suave na cor */
+}
+
+input:focus {
+    border-color: #007bff; /* Fica azul quando clica para digitar */
+}
+
+/* O botão principal "Adicionar" */
+button#btn-adicionar {
+    width: 25%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 2%; /* Espacinho entre input e botão */
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button#btn-adicionar:hover {
+    background-color: #0056b3; /* Escurece ao passar o mouse */
+}
+
+/* 5. A LISTA DE TAREFAS */
+ul {
+    list-style: none; /* Tira as bolinhas pretas da lista */
+    margin-top: 20px;
+}
+
+li {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    display: flex; /* Para alinhar texto e botão lado a lado */
+    justify-content: space-between; /* Texto na esquerda, X na direita */
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+li:hover {
+    background-color: #f9f9f9; /* Efeito leve ao passar o mouse na tarefa */
+}
+
+/* O texto da tarefa (o span) */
+li span {
+    cursor: pointer; /* Mãozinha para indicar que é clicável/editável */
+    flex-grow: 1; /* Ocupa todo o espaço disponível */
+    word-break: break-all; /* Quebra o texto se for muito longo */
+}
+
+/* O botão de excluir (o X) */
+li button {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4d; /* Vermelho */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 50%; /* Botão redondo */
+    transition: background-color 0.2s;
+}
+
+li button:hover {
+    background-color: #ffe6e6; /* Fundo vermelhinho suave */
+}
