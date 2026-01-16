@@ -107,3 +107,21 @@ li button {
 li button:hover {
     background-color: #ffe6e6; /* Fundo vermelhinho suave */
 }
+
+/* Widget de Cotação */
+div#info-cotacao {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #dee2e6;
+}
+
+div#info-cotacao b{
+    color: #28a745;
+    
+}

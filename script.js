@@ -93,3 +93,35 @@ inputDoUsuario.addEventListener('keypress', function(evento) {
         adicionarTarefa();
     }
 });
+
+// --- API DE COTAÇÃO ---
+// A palavra 'async' avisa que essa função tem partes que demoram (ir na internet)
+async function buscarCotacao() {
+    try{
+// 1. Chamar o garçom (fetch) e esperar (await) ele voltar com a resposta
+        const resposta = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL');
+        
+        // 2. Transformar a resposta (que vem em texto) em JSON (Objeto JS)
+        const dados = await resposta.json();
+
+        // 3. Pegar os valores que queremos
+        // A API devolve algo como: dados.USDBRL.high (Valor alto do dia)
+        const dolar = dados.USDBRL.high;
+        const euro = dados.EURBRL.high;
+
+        // 4. Jogar na tela (arredondando para 2 casas decimais)
+        // O parseFloat transforma texto em número para podermos usar o .toFixed(2)
+        document.getElementById('valor-dolar').innerText = parseFloat(dolar).toFixed(2);
+        document.getElementById('valor-euro').innerText = parseFloat(euro).toFixed(2);
+
+        console.log("Cotações atualizadas!");
+
+    } catch (erro) {
+        // Se a internet cair ou o site estiver fora do ar, avisa no console
+        console.error("Erro ao buscar cotação:", erro);
+        document.getElementById('info-cotacao').innerText = "Erro ao carregar cotações";
+    }
+}
+
+// Chamar a função assim que o código carregar
+buscarCotacao();
